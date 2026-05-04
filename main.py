@@ -6,6 +6,11 @@ from app.database import Base
 from app.database import engine
 from fastapi.middleware.cors import CORSMiddleware
 
+origins = [
+    "http://localhost:8000",
+    "https://asarturzx-lgtm.github.io",  # Добавь эту строку
+]
+
 app = FastAPI()
 
 # Добавь этот блок:

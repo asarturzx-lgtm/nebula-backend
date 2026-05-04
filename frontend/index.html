@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEBULA | Private Vault</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body class="light-off">
+<!-- Сцена с лампой -->
+<div id="auth-scene" class="auth-scene">
+    <div class="lamp-fixed-top">
+        <div class="lamp-shade"></div>
+        <div class="cord-system" id="main-pull-cord">
+            <div class="thread"></div>
+            <div class="handle"></div>
+        </div>
+        <div class="light-beam"></div>
+    </div>
+
+    <div id="auth-container" class="login-frame">
+        <div class="brand-badge">SECURE SYSTEM</div>
+        <h1>NEBULA</h1>
+        <div class="input-box">
+            <input type="password" id="login-input" placeholder="КЛЮЧ ДОСТУПА">
+            <div class="glow-line"></div>
+        </div>
+        <button class="btn-init" onclick="login()">INITIALIZE</button>
+    </div>
+</div>
+
+<!-- Основной интерфейс -->
+<div id="dashboard" class="dashboard-wrapper hidden">
+    <nav class="side-nav">
+        <div class="nav-logo">N</div>
+        <div class="nav-links">
+            <div class="nav-icon active">●</div>
+        </div>
+        <button class="nav-exit" onclick="logout()">✕</button>
+    </nav>
+
+    <main class="main-viewport">
+        <header class="main-header">
+            <div class="user-info">SESSION: <span id="user-display">---</span></div>
+            <div class="system-time" id="clock">00:00:00</div>
+        </header>
+
+        <div class="scrollable-content">
+            <div class="bento-grid">
+                <!-- Главная карта -->
+                <div class="card hero-card">
+                    <label>TOTAL CAPITAL</label>
+                    <h2 id="total-balance">0 ₽</h2>
+                    <div class="card-wave"></div>
+                </div>
+
+                <!-- Форма создания -->
+                <div class="card action-card">
+                    <h3>GENERATE ASSET</h3>
+                    <div class="form-group">
+                        <input type="text" id="new-wallet-name" placeholder="Name">
+                        <input type="number" id="new-wallet-balance" placeholder="Amount">
+                        <button class="btn-create" onclick="createWallet()">CREATE NODE</button>
+                    </div>
+                </div>
+
+                <!-- Операции -->
+                <div class="card ops-card">
+                    <h3>TRANSACTION</h3>
+                    <select id="op-wallet-name"></select>
+                    <input type="number" id="op-amount" placeholder="0.00">
+                    <div class="dual-btns">
+                        <button class="btn-op in" onclick="handleOperation('income')">INFLOW</button>
+                        <button class="btn-op out" onclick="handleOperation('expense')">OUTFLOW</button>
+                    </div>
+                </div>
+
+                <!-- Список -->
+                <div class="card list-card">
+                    <h3>ACTIVE NODES</h3>
+                    <div id="wallets-list" class="assets-scroll-box"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

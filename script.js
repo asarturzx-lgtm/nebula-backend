@@ -1,4 +1,4 @@
-const API_URL = '[https://nebula-backend-hkfk.onrender.com/api/v1](https://nebula-backend-hkfk.onrender.com/api/v1)';
+const API_URL = 'https://nebula-backend-hkfk.onrender.com/api/v1';
 let authToken = '';
 
 // Механизм лампы
